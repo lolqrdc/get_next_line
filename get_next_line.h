@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 12:43:12 by loribeir          #+#    #+#             */
-/*   Updated: 2024/11/11 10:47:16 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/11/11 14:21:46 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@
 # include <fcntl.h>
 
 char	*get_next_line(int fd);
-char	*ft_strrchr(const char *s, int c);
-size_t	ft_strlen(const char *s);
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+char	*ft_gnlchr(int fd, char *stock);
 
 
 #endif

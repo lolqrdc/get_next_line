@@ -6,51 +6,35 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 12:43:24 by loribeir          #+#    #+#             */
-/*   Updated: 2024/11/11 10:46:59 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/11/11 14:28:35 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-	
-	i = 0;
-	while (*str != '\0')
-	{
-		str++;
-		i++;
-	}
-	return (i);
-}
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
-{
-	size_t	len;
-	size_t	i;
-
-	len = ft_strlen(src);
-	if (size == 0)
-		return (len);
-	i = 0;
-	while (i < size - 1 && src[i])
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (len);
-}
-char	*ft_strrchr(const char *s, int c)
+char	*ft_gnlchr(int fd, char *stock)
 {
 	int	i;
 
-	i = ft_strlen(s);
-	while (i >= 0 && s[i] != (char)c)
+	if (!stock)
+		return (NULL);
+	while (read(fd, stock, BUFFER_SIZE) > 0)
 	{
-		i--;
+		i = 0;
+		while (stock[i])
+		{
+			if (stock[i] == '\n')
+				return (&stock[i]);
+			i++;
+		}
 	}
-	if (s[i] == (char)c)
-		return ((char *)s + i);
 	return (NULL);
 }
+char	ft_gnlcpy(char *stock)
+{
+	
+}
+void	ft_gnlclean()
+{}
+char	*ft_gnljoin()
+{}

@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 12:43:24 by loribeir          #+#    #+#             */
-/*   Updated: 2024/11/12 16:16:58 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/11/12 18:08:27 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,30 @@ int	ft_gnlchr(char *stocker)
 	}
 	return (0);
 }
+/* fonction pour joindre ce qui est dans le buffer a la newline*/
+char	*ft_gnljoin(char *newline, char *stocker)
+{
+	char	*result;
+	size_t	i;
+	size_t	j;
+	
+	result = malloc(ft_strlen(newline) + ft_strlen(stocker) + 1) *sizeof(char);
+	
+}
 /* fonction pour clean le buffer apres l'ajout d'une ligne dans newline*/
 char	*ft_gnlclean(char *stocker, char *newline)
 {
+	size_t	i;
+	size_t	j;
+	
+	
 }
-/* fonction pour joindre ce qui est dans le buffer a la newline*/
-char	*ft_gnljoin()
-{}
 size_t	ft_strlen(char *str)
 {
 	size_t	i;
 
 	i = 0;
-	while (*str != '\0')
-	{
-		str++;
+	while (*str != '\0' || *str != '\n')
 		i++;
-	}
 	return (i);
 }

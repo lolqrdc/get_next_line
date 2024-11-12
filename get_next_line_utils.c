@@ -6,15 +6,44 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 12:43:24 by loribeir          #+#    #+#             */
-/*   Updated: 2024/11/11 16:03:33 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/11/12 16:16:58 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	ft_gnlchr()
-{}
-char	ft_gnlcpy()
-{}
+/* fonction pour chercher un '\n' dans le buffer */
+int	ft_gnlchr(char *stocker)
+{
+	int	i;
+
+	i = 0;
+	if (stocker == NULL)
+		return (0);
+	while (stocker[i] != '\0')
+	{
+		if (stocker[i] == '\n')
+			return (1);
+		i++;
+	}
+	return (0);
+}
+/* fonction pour clean le buffer apres l'ajout d'une ligne dans newline*/
+char	*ft_gnlclean(char *stocker, char *newline)
+{
+}
+/* fonction pour joindre ce qui est dans le buffer a la newline*/
 char	*ft_gnljoin()
 {}
+size_t	ft_strlen(char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (*str != '\0')
+	{
+		str++;
+		i++;
+	}
+	return (i);
+}

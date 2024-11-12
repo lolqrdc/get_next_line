@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 12:43:08 by loribeir          #+#    #+#             */
-/*   Updated: 2024/11/11 18:36:14 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/11/12 16:56:38 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,16 @@
 
 char	*get_next_line(int fd)
 {
-	/* une fonction pour chercher le \n*/
+	static char	*stocker [BUFFER_SIZE + 1];
+	char		*newline;
+	int			toread;
+
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
 	
-	/* une fonction pour copier la ligne + \n*/
+	return (newline);
 }
+/* 
+1- ce qui est reference par fd, stock dans un static char nommee 'stocker'
+2- 
+*/

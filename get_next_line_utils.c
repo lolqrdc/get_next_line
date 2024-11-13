@@ -6,13 +6,12 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 12:43:24 by loribeir          #+#    #+#             */
-/*   Updated: 2024/11/12 18:08:27 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/11/13 16:12:52 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-/* fonction pour chercher un '\n' dans le buffer */
 int	ft_gnlchr(char *stocker)
 {
 	int	i;
@@ -28,23 +27,53 @@ int	ft_gnlchr(char *stocker)
 	}
 	return (0);
 }
-/* fonction pour joindre ce qui est dans le buffer a la newline*/
 char	*ft_gnljoin(char *newline, char *stocker)
 {
 	char	*result;
-	size_t	i;
-	size_t	j;
+	int		i;
+	int		j;
 	
-	result = malloc(ft_strlen(newline) + ft_strlen(stocker) + 1) *sizeof(char);
-	
+	i = 0;
+	j = 0;
+	if (!newline || !stocker)
+		return (NULL);
+	result = malloc(ft_strlen(newline + ft_strlen(stocker) + 1) * sizeof(char));
+		if (result == NULL)
+			return (NULL);
+	while(stocker[i] || stocker[i] != '\n')
+	{
+		result[i] = stocker[i];
+		i++;
+	}
+	while (newline[j] || newline[j] != '\n')
+	{
+		result[i + j] = newline[j];
+		j++;
+	}
+	free(stocker);
+	result[i + j] = '\0';
+	return(result);
 }
-/* fonction pour clean le buffer apres l'ajout d'une ligne dans newline*/
-char	*ft_gnlclean(char *stocker, char *newline)
+char	*ft_gnlclean(char *stocker)
 {
-	size_t	i;
-	size_t	j;
-	
-	
+	int	i;
+	int	j;
+	char	*newstocker;
+
+	i = 0;
+	j = 0;
+	while (stocker[i] && stocker[i] != '\n')
+		i++;
+	if (stocker[i] == '\n')
+		i++;
+	newstocker = malloc(ft_strlen(stocker + 1) * sizeof(char));
+	if (!newstocker)
+		return (NULL);
+	while (stocker[i])
+		newstocker[j++] = stocker[i++];
+	newstocker[j] = '\0';
+	free(stocker);
+	return (newstocker);
 }
 size_t	ft_strlen(char *str)
 {

@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 12:43:24 by loribeir          #+#    #+#             */
-/*   Updated: 2024/11/13 16:12:52 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/11/13 21:14:56 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,19 @@ int	ft_gnlchr(char *stocker)
 	}
 	return (0);
 }
-char	*ft_gnljoin(char *newline, char *stocker)
+char	*ft_gnljoin(char *stocker, char *newline)
 {
 	char	*result;
 	int		i;
 	int		j;
 	
-	i = 0;
 	j = 0;
 	if (!newline || !stocker)
 		return (NULL);
-	result = malloc(ft_strlen(newline + ft_strlen(stocker) + 1) * sizeof(char));
+	result = malloc((ft_strlen(newline) + ft_strlen(stocker) + 1) * sizeof(char));
 		if (result == NULL)
 			return (NULL);
+	i = -1;
 	while(stocker[i] || stocker[i] != '\n')
 	{
 		result[i] = stocker[i];
@@ -50,15 +50,14 @@ char	*ft_gnljoin(char *newline, char *stocker)
 		result[i + j] = newline[j];
 		j++;
 	}
-	free(stocker);
 	result[i + j] = '\0';
+	free(newline);
 	return(result);
 }
 char	*ft_gnlclean(char *stocker)
 {
 	int	i;
 	int	j;
-	char	*newstocker;
 
 	i = 0;
 	j = 0;
@@ -66,21 +65,22 @@ char	*ft_gnlclean(char *stocker)
 		i++;
 	if (stocker[i] == '\n')
 		i++;
-	newstocker = malloc(ft_strlen(stocker + 1) * sizeof(char));
-	if (!newstocker)
-		return (NULL);
 	while (stocker[i])
-		newstocker[j++] = stocker[i++];
-	newstocker[j] = '\0';
-	free(stocker);
-	return (newstocker);
+	{
+		stocker[j] = stocker[i];
+		i++;
+		j++;
+	}
+	return (stocker);
 }
 size_t	ft_strlen(char *str)
 {
 	size_t	i;
 
 	i = 0;
-	while (*str != '\0' || *str != '\n')
+	if (!str)
+		return (0);
+	while (str[i] != '\0' && str[i] != '\n')
 		i++;
 	return (i);
 }

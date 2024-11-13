@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 12:43:08 by loribeir          #+#    #+#             */
-/*   Updated: 2024/11/13 16:01:18 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/11/13 21:25:42 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*get_next_line(int fd)
 	{
 		if (ft_gnlchr(stocker)) // si stocker contient un '\n'
 		{
-			newline = ft_gnljoin(newline, stocker); // si '\n' est trouve, ajouter le content de stocker a newline 
+			newline = ft_gnljoin(newline, stocker); // si '\n' est trouve, ajouter le content de stocker a newline
 			ft_gnlclean(stocker);
 			return (newline);
 		}
@@ -48,11 +48,6 @@ int main(void)
 
 	count = 0;
 	fd = open("fichier.txt", O_RDONLY);
-	if (fd == -1) // cas d'erreur 
-	{
-		printf("Error, impossible to open the file.");
-		return (1);
-	}
 	while (1)
 	{
 		newline = get_next_line(fd);

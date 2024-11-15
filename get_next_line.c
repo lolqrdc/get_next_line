@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 12:43:08 by loribeir          #+#    #+#             */
-/*   Updated: 2024/11/13 21:25:42 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/11/15 09:43:28 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,24 +40,19 @@ char	*get_next_line(int fd)
 	stocker[toread] = '\0';
 	return (newline);
 }
-int main(void)
+/*int main(void)
 {
-	int	fd;
-	char *newline;
-	int count;
-
-	count = 0;
-	fd = open("fichier.txt", O_RDONLY);
-	while (1)
+	int	fd = open("fichier.txt", O_RDONLY);
+	char *newline = get_next_line(fd);
+	
+	while(newline != NULL)
 	{
+		printf("%s", newline);
 		newline = get_next_line(fd);
-		if (newline == NULL)
-			break;
-		count++;
-	printf("[%d]: %s\n", count, newline);
-	free(newline);
-	newline = NULL;
 	}
-	close(fd);
-	return (0);
-}
+	newline = get_next_line(fd);
+	printf("%s", newline);
+	free(newline);
+	close (fd);
+	return(0);
+}*/

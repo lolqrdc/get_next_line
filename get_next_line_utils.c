@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 12:43:24 by loribeir          #+#    #+#             */
-/*   Updated: 2024/11/15 19:37:51 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/11/16 15:10:27 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,33 +28,34 @@ int	ft_gnlchr(char *stocker)
 	return (0);
 }
 
-char	*ft_gnljoin(char *st, char *nl)
+char	*ft_gnljoin(char *nl, char *st)
 {
 	char		*result;
 	size_t		i;
 	size_t		j;
 
-	if (!st)
+	if (!nl)
 	{
-		st = malloc(sizeof(char));
+		nl = malloc(sizeof(char));
 		if (!nl)
-			return (free(st), NULL);
-		st[0] = '\0';
+			return (NULL);
+		nl[0] = '\0';
 	}
-	result = malloc((ft_strlen(st) + ft_strlen(nl) + 1) * sizeof(char));
+	result = malloc((ft_strlen(nl) + ft_strlen(st) + 1) * sizeof(char));
 	if (!result)
 		return (NULL);
 	i = -1;
-	while (st[++i] != '\0')
-		result[i] = st[i];
-	free(st);
+	while (nl[++i] != '\0')
+		result[i] = nl[i];
+	free(nl);
 	j = 0;
-	while (nl[j] && nl[j] != '\n')
-		result[i++] = nl[j++];
-	result[i++] = '\n';
+	while (st[j] && st[j] != '\n')
+		result[i++] = st[j++];
+	if (st[j] == '\n')
+		result[i++] = '\n';
 	result[i] = '\0';
 	return (result);
-}
+}	
 
 char	*ft_gnlclean(char *stocker)
 {
@@ -85,6 +86,8 @@ size_t	ft_strlen(char *str)
 	if (!str)
 		return (0);
 	while (str[i] != '\0' && str[i] != '\n')
+		i++;
+	if (str[i] == '\n')
 		i++;
 	return (i);
 }

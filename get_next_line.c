@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 12:43:08 by loribeir          #+#    #+#             */
-/*   Updated: 2024/11/16 18:33:01 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/11/16 20:01:00 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,26 @@ char	*get_next_line(int fd)
 {
 	static char	stocker [BUFFER_SIZE + 1] = {0};
 	char		*newline;
-	int			toread;
+	int			to_read;
 
 	newline = NULL;
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	if (ft_gnlchr(stocker))
 		(ft_gnlclean(stocker), newline = ft_gnljoin(newline, stocker));
-	toread = 1;
-	while (toread > 0 && ft_gnlchr(stocker) == 0)
+	to_read = 1;
+	while (to_read > 0 && ft_gnlchr(stocker) == 0)
 	{
-		toread = read(fd, stocker, BUFFER_SIZE);
-		if (toread < 0)
+		to_read = read(fd, stocker, BUFFER_SIZE);
+		if (to_read < 0)
 			return (free(newline), NULL);
-		if (toread == 0)
+		if (to_read == 0)
 		{
-			if (newline != NULL && newline['\0'])
+			if (newline != NULL && newline[0] != '\0')
 				return (newline);
 			return (free(newline), NULL);
 		}
-		stocker[toread] = '\0';
+		stocker[to_read] = '\0';
 		newline = ft_gnljoin(newline, stocker);
 	}
 	return (newline);
@@ -46,15 +46,13 @@ char	*get_next_line(int fd)
 	char *newline;
 
 	fd = open("test01.txt", O_RDONLY);
-	newline = get_next_line(fd);
-	printf("%s", newline);
-	while(newline != NULL)
+	while ((newline = get_next_line(fd)) != NULL)
 	{
-		newline = get_next_line(fd);
 		printf("%s", newline);
+		free(newline);
 	}
-	free(newline);
 	close (fd);
+	return (0);
 }*/
 //test 01 - fichier sans newline 
 //test 02 - fichier avec une newline 

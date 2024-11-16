@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 12:43:08 by loribeir          #+#    #+#             */
-/*   Updated: 2024/11/16 15:20:33 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/11/16 15:43:45 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,3 @@ char	*get_next_line(int fd)
 //test 09 - 
 //test 10 - 
 //test 11 - 
-
-/* 
-16/11 TODO : actuellement quand le buffer est petit, gnl ne marche pas.
-*/

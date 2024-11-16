@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 12:43:24 by loribeir          #+#    #+#             */
-/*   Updated: 2024/11/16 15:10:27 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/11/16 18:25:13 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	*ft_gnljoin(char *nl, char *st)
 		result[i++] = '\n';
 	result[i] = '\0';
 	return (result);
-}	
+}
 
 char	*ft_gnlclean(char *stocker)
 {

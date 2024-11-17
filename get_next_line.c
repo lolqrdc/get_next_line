@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 12:43:08 by loribeir          #+#    #+#             */
-/*   Updated: 2024/11/16 20:01:00 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/11/17 15:04:51 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,4 @@ char	*get_next_line(int fd)
 //test 05 - fichier vide 
 //test 06 - plusieurs lignes sans newline 
 //test 07 - plusieurs lignes avec newline 
-//test 08 - test specifique a la condition if (newline != NULL && newline['\0'])
+//test 08 - test specifique a la condition if line 34

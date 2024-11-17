@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 18:42:34 by loribeir          #+#    #+#             */
-/*   Updated: 2024/11/16 20:39:01 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/11/17 11:16:11 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # include <fcntl.h>
 # include <stdio.h>
 
-char	*get_next_line_bonus(int fd);
+char	*get_next_line(int fd);
 int		ft_gnlchr(char *stocker);
 char	*ft_gnljoin(char *newline, char *stocker);
 char	*ft_gnlclean(char *stocker);

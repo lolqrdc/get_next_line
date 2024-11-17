@@ -6,13 +6,13 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 18:42:18 by loribeir          #+#    #+#             */
-/*   Updated: 2024/11/16 20:51:51 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/11/17 14:08:35 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-char	*get_next_line_bonus(int fd)
+char	*get_next_line(int fd)
 {
 	static char	stocker [FD_SIZE][BUFFER_SIZE + 1] = {0};
 	char		*newline;
@@ -40,27 +40,44 @@ char	*get_next_line_bonus(int fd)
 	}
 	return (newline);
 }
-int main (void)
+/*int main (void)
 {
-	 int i = 0;
-	 int fd1 = open("test_b01.txt", O_RDONLY);
-	 int fd2 = open("test_b02.txt", O_RDONLY);
-	 char line_1;
-	 char line_2;
+	char	*line1;
+	char	*line2;
+	int		fd1;
+	int		fd2;
+	int		i;
 	
-	 while (i < 5)
-	 {
-		line_1 = get_next_line_bonus(fd1);
-		line_2 = get_next_line_bonus(fd2);
-		i++;
-		
-		printf("test_b01: %s", line_1);
-		printf("test_b02: %s", line_2);
-		
-		free(line_1);
-		free(line_2);
-	 }
-	 close(fd1);
-	 close(fd2);
-	 return (0);
-}
+	fd1 = open("test07.txt", O_RDONLY);
+	fd2 = open("test08.txt", O_RDONLY);
+
+	i = 0;
+	while (i < 10)
+	{
+		line1 = get_next_line(fd1);
+		line2 = get_next_line(fd2);
+		if (line1)
+		{
+			printf("fichier 1 : %s", line1);
+			free(line1);
+		}
+		if (line2)
+		{
+			printf("fichier 2 : %s", line2);
+			free(line2);
+		}
+		if (!line1 && !line2)
+			break;
+	}
+	close(fd1);
+	close(fd2);
+	return (0);
+}*/
+//test01.txt = fichier sans newline
+// test02.txt = fichier avec une newline
+//test03.txt = tres longue ligne sans newline 
+//test04.txt = tres longue ligne avec newline 
+//test05.txt = fichier vide 
+//test06.txt = plusieurs lignes sans newline 
+//test07.txt = plusieurs lignes avec newline 
+//test08.txt = test specifique a la condition if (newline != NULL && newline[0]

@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 18:42:18 by loribeir          #+#    #+#             */
-/*   Updated: 2024/11/17 15:05:07 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/11/18 10:58:34 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*get_next_line(int fd)
 {
-	static char	stocker [FD_SIZE][BUFFER_SIZE + 1] = {0};
+	static char	stocker [FD_SIZE][BUFFER_SIZE + 1] = {};
 	char		*newline;
 	int			to_read;
 
